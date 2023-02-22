@@ -1,8 +1,8 @@
-# Magento 2 Module - Salable Quantity
+# Magento 2 Module - SalableQty
 
 Package name: `peterbrain/magento2-salable-qty`
 
-- [Magento 2 Module - Salable Quantity](#magento-2-module---salable-quantity)
+- [Magento 2 Module - SalableQty](#magento-2-module---salableqty)
   - [Main Functionalities](#main-functionalities)
   - [Installation](#installation)
     - [Method 1: Composer (recommended)](#method-1-composer-recommended)

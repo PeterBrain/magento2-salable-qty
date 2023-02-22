@@ -1,0 +1,29 @@
+<?php
+
+/* @var $block \PeterBrain\SalableQty\Block\SalableQuantityBlock */
+?>
+<?php $helper = $this->helper('PeterBrain\SalableQty\Helper\Data'); ?>
+
+<?php if ($helper->isEnabled()): ?>
+
+    <?php $salable_qty = $block->getSalableQuantity(); ?>
+    <?php $message = $block->getSalableQuantityMessage(); ?>
+
+    <?php if (!empty($message)): ?>
+        <div class="product-salable-quantity">
+            <?php echo $message; ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if ($helper->getDisableAddToCartButton() && $salable_qty < 1): ?>
+        <script>
+            var cartButton = document.getElementById('product-addtocart-button');
+
+            window.addEventListener('load', (event) => {
+                cartButton.disabled = true;
+                cartButton.classList.add("disabled", "addToCartButtonDisabledClass");
+            });
+        </script>
+    <?php endif; ?>
+
+<?php endif; ?>

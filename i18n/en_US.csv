@@ -1,0 +1,37 @@
+"Salable Quantity","Salable Quantity"
+
+"Enable Module","Enable Module"
+"Select Yes to enable module output.","Select Yes to enable module output."
+"Select ""Yes"" to enable and ""No"" to disable module output.","Select ""Yes"" to enable and ""No"" to disable module output."
+
+"Disable Add to Cart Button","Disable Add to Cart Button"
+"Select Yes to disable the ""Add to Cart"" button when the saleable quantity is 0.","Select Yes to disable the ""Add to Cart"" button when the saleable quantity is 0."
+"Select ""Yes"" to disable and ""No"" to leave ""Add to Cart"" button at default.","Select ""Yes"" to disable and ""No"" to leave ""Add to Cart"" button at default."
+
+"Frontend Message","Frontend Message"
+"Configuration for the output of messages on the frontend. Note: The configuration of the threshold message is located in the threshold group below.","Configuration for the output of messages on the frontend. Note: The configuration of the threshold message is located in the threshold group below."
+
+"Enable Message","Enable Message"
+"Select Yes to enable message output.","Select Yes to enable message output."
+"Select ""Yes"" to enable and ""No"" to disable message output.","Select ""Yes"" to enable and ""No"" to disable message output."
+
+"Message for Saleable Quantity = 0","Message for Saleable Quantity = 0"
+"This message is displayed when the product has already been ordered but not yet shipped and the quantity is 1 (saleable quantity = 0). The default behavior of Magento is to display an error message that the requested quantity is no longer available. This can cause confusion as the product will continue to be displayed as ""in stock"" until it is shipped.","This message is displayed when the product has already been ordered but not yet shipped and the quantity is 1 (saleable quantity = 0). The default behavior of Magento is to display an error message that the requested quantity is no longer available. This can cause confusion as the product will continue to be displayed as ""in stock"" until it is shipped."
+"Default message: Out of stock. Suggestion: This product has been sold recently and is no longer available.","Default message: Out of Stock. Suggestion: This product has been sold recently and is no longer available."
+"Out of stock","Out of stock"
+
+"Threshold","Threshold"
+"Minimum quantity threshold configuration. Display a message on the frontend when the saleable quantity matches or drops below a certain threshold.","Minimum quantity threshold configuration. Display a message on the frontend when the saleable quantity matches or drops below a certain threshold."
+
+"Enable Quantity Threshold","Enable Quantity Threshold"
+"Select Yes to enable quantity threshold.","Select Yes to enable quantity threshold."
+"Select ""Yes"" to enable and ""No"" to disable quantity threshold.","Select ""Yes"" to enable and ""No"" to disable quantity threshold."
+
+"Quantity Threshold","Quantity Threshold"
+"Must be a whole number above 1. Default value: 5","Must be a number above 1. Default value: 5"
+"Minimum threshold at which the message about the remaining quantity is to be displayed.","Minimum threshold at which the message about the remaining quantity is to be displayed."
+
+"Message for Salable Quantity at or below Threshold Value","Message for Salable Quantity at or below Threshold Value"
+"Default message: Only %1 item(s) left!","Default message: Only %1 item(s) left!"
+"This message is displayed when the saleable quantity is at or below the threshold. Use %1 to display the remaining quantity (required).","This message is displayed when the saleable quantity is at or below the threshold. Use %1 to display the remaining quantity (required)."
+"Only %1 item(s) left!","Only %1 item(s) left!"

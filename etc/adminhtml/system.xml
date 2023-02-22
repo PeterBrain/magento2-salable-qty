@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="peterbrain" translate="label">
+            <label>PeterBrain Extensions</label>
+        </tab>
+        <section id="pb_salableqty" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Salable Quantity</label>
+            <tab>peterbrain</tab>
+            <resource>PeterBrain_SalableQty::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Configuration</label>
+                <field id="enable" translate="label comment tooltip" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Select Yes to enable module output.</comment>
+                    <tooltip>Select "Yes" to enable and "No" to disable module output.</tooltip>
+                </field>
+                <field id="disable_add2cart_button" translate="label comment tooltip" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Disable Add to Cart Button</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Select Yes to disable the "Add to Cart" button when the saleable quantity is 0.</comment>
+                    <tooltip>Select "Yes" to disable and "No" to leave "Add to Cart" button at default.</tooltip>
+                    <depends>
+                        <field id="pb_salableqty/general/enable">1</field>
+                    </depends>
+                </field>
+                <group id="message" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Frontend Message</label>
+                    <comment>Configuration for the output of messages on the frontend. Note: The configuration of the threshold message is located in the threshold group below.</comment>
+                    <field id="enable_message" translate="label comment tooltip" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enable Message</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment>Select Yes to enable message output.</comment>
+                        <tooltip>Select "Yes" to enable and "No" to disable message output.</tooltip>
+                    </field>
+                    <field id="message_qty_zero" translate="label comment tooltip" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Message for Saleable Quantity = 0</label>
+                        <comment>This message is displayed when the product has already been ordered but not yet shipped and the quantity is 1 (saleable quantity = 0). The default behavior of Magento is to display an error message that the requested quantity is no longer available. This can cause confusion as the product will continue to be displayed as "in stock" until it is shipped.</comment>
+                        <tooltip>Default message: Out of stock. Suggestion: This product has been sold recently and is no longer available.</tooltip>
+                        <validate>required-entry validate-no-html-tags</validate>
+                        <depends>
+                            <field id="pb_salableqty/general/enable_message">1</field>
+                        </depends>
+                    </field>
+                    <depends>
+                        <field id="pb_salableqty/general/enable">1</field>
+                    </depends>
+                </group>
+            </group>
+            <group id="threshold" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Threshold</label>
+                <comment>Minimum quantity threshold configuration. Display a message on the frontend when the saleable quantity matches or drops below a certain threshold.</comment>
+                <field id="enable_qty_threshold" translate="label comment tooltip" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Quantity Threshold</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Select Yes to enable quantity threshold.</comment>
+                    <tooltip>Select "Yes" to enable and "No" to disable quantity threshold.</tooltip>
+                </field>
+                <field id="salable_qty_threshold" translate="label comment tooltip" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Quantity Threshold</label>
+                    <comment>Must be a whole number above 1. Default value: 5</comment>
+                    <tooltip>Minimum threshold at which the message about the remaining quantity is to be displayed.</tooltip>
+                    <validate>required-entry integer</validate>
+                    <depends>
+                        <field id="pb_salableqty/threshold/enable_qty_threshold">1</field>
+                    </depends>
+                </field>
+                <field id="message_qty_threshold" translate="label comment tooltip" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Message for Salable Quantity at or below Threshold Value</label>
+                    <comment>Default message: Only %1 item(s) left!</comment>
+                    <tooltip>This message will be shown when the salable qty is at or below the threshold. Use %1 to display the remaining quantity (required).</tooltip>
+                    <validate>required-entry validate-no-html-tags</validate>
+                    <depends>
+                        <field id="pb_salableqty/threshold/enable_qty_threshold">1</field>
+                    </depends>
+                </field>
+                <depends>
+                    <field id="pb_salableqty/general/enable">1</field>
+                </depends>
+            </group>
+            <group id="information" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Information</label>
+                <attribute type="expanded">0</attribute>
+                <field id="module_name" translate="label" type="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Module Name</label>
+                    <frontend_model>PeterBrain\SalableQty\Block\Adminhtml\System\Config\Module\Name</frontend_model>
+                </field>
+                <field id="version" translate="label" type="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Module Version</label>
+                    <frontend_model>PeterBrain\SalableQty\Block\Adminhtml\System\Config\Module\Version</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

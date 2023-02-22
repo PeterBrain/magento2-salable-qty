@@ -1,0 +1,14 @@
+#product-addtocart-button[disabled],
+#product-addtocart-button.disabled,
+#product-addtocart-button.addToCartButtonDisabledClass {
+  position: relative;
+  cursor: auto;
+}
+
+#product-addtocart-button[disabled]::after,
+#product-addtocart-button.disabled::after,
+#product-addtocart-button.addToCartButtonDisabledClass::after {
+  content: "\01F512";
+  position: absolute;
+  right: 1em;
+}

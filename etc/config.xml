@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <pb_salableqty>
+            <general>
+                <enable>0</enable>
+                <disable_add2cart_button>0</disable_add2cart_button>
+                <message>
+                    <enable_message>1</enable_message>
+                    <message_qty_zero>Out of stock</message_qty_zero>
+                </message>
+            </general>
+            <threshold>
+                <enable_qty_threshold>0</enable_qty_threshold>
+                <message_qty_threshold>Only %1 item(s) left!</message_qty_threshold>
+                <salable_qty_threshold>5</salable_qty_threshold>
+            </threshold>
+        </pb_salableqty>
+    </default>
+</config>

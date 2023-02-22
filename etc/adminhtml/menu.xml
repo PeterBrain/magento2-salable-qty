@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="PeterBrain_SalableQty::salableqty"
+            title="Salable Quantity"
+            module="PeterBrain_SalableQty"
+            sortOrder="50"
+            dependsOnModule="PeterBrain_Core"
+            parent="PeterBrain_Core::peterbrain"
+            resource="PeterBrain_SalableQty::salableqty"
+        />
+            <add
+                id="PeterBrain_SalableQty::config"
+                title="Configuration"
+                module="PeterBrain_SalableQty"
+                sortOrder="10"
+                dependsOnModule="PeterBrain_SalableQty"
+                parent="PeterBrain_SalableQty::salableqty"
+                action="adminhtml/system_config/edit/section/pb_salableqty"
+                resource="PeterBrain_SalableQty::config"
+            />
+    </menu>
+</config>

@@ -2,12 +2,12 @@
 
 Package name: `peterbrain/magento2-salable-qty`
 
-- [Magento 2 Module - SalableQty](#magento-2-module---salable-quantity)
+- [Magento 2 Module - Salable Quantity](#magento-2-module---salable-quantity)
   - [Main Functionalities](#main-functionalities)
   - [Installation](#installation)
     - [Method 1: Composer (recommended)](#method-1-composer-recommended)
     - [Method 2: Zip file (not recommended)](#method-2-zip-file-not-recommended)
-    - [Enable & deploy](#enable--deploy)
+    - [Enable \& deploy](#enable--deploy)
   - [Usage](#usage)
 
 ## Main Functionalities
@@ -18,6 +18,13 @@ Package name: `peterbrain/magento2-salable-qty`
 - Display custom message for products without salable quantity. This is the case if a product quantity equals 1 and is ordered, but is not yet shipped. The default behavior of Magento is to display an error message that the requested quantity is no longer available after a click on the Add to cart button. Not ideal, because this can cause confusion as the product will continue to be displayed as "in stock" until it is shipped.
   - Option to disable the Add to cart button
   - Custmizable message: This product has been sold recently and is no longer available.
+
+Display custom message for products with salable quantity at or below threshold:
+![Display custom message for products with salable quantity at or below threshold.](https://github.com/peterbrain/magento2-salable-qty/blob/media/salable-qty_frontend-threshold.jpg?raw=true)
+Disable Add to cart button for products without salable quantity:
+![Disable Add to cart button for products without salable quantity.](https://github.com/peterbrain/magento2-salable-qty/blob/media/salable-qty_frontend-disabled.jpg?raw=true)
+Admin configuration:
+![Admin configuration](https://github.com/peterbrain/magento2-salable-qty/blob/media/salable-qty_admin.jpg?raw=true)
 
 ## Installation
 

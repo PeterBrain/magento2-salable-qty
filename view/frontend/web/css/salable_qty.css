@@ -5,9 +5,9 @@
   cursor: auto;
 }
 
-#product-addtocart-button[disabled]::after,
-#product-addtocart-button.disabled::after,
-#product-addtocart-button.addToCartButtonDisabledClass::after {
+#product-addtocart-button[disabled].lock-icon::after,
+#product-addtocart-button.disabled.lock-icon::after,
+#product-addtocart-button.addToCartButtonDisabledClass.lock-icon::after {
   content: "\01F512";
   position: absolute;
   right: 1em;

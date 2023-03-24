@@ -26,6 +26,15 @@
                         <field id="pb_salableqty/general/enable">1</field>
                     </depends>
                 </field>
+                <field id="enable_add2cart_icon" translate="label comment tooltip" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Add to Cart Button Icon</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Select Yes to enable the "Add to Cart" button icon when the saleable quantity is 0.</comment>
+                    <tooltip>Select "Yes" to enable and "No" to disable "Add to Cart" button icon.</tooltip>
+                    <depends>
+                        <field id="pb_salableqty/general/enable">1</field>
+                    </depends>
+                </field>
                 <group id="message" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Frontend Message</label>
                     <comment>Configuration for the output of messages on the frontend. Note: The configuration of the threshold message is located in the threshold group below.</comment>
@@ -83,13 +92,20 @@
             <group id="information" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Information</label>
                 <attribute type="expanded">0</attribute>
-                <field id="module_name" translate="label" type="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="module_name" translate="label" type="note" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Module Name</label>
-                    <frontend_model>PeterBrain\SalableQty\Block\Adminhtml\System\Config\Module\Name</frontend_model>
+                    <frontend_model>PeterBrain\Core\Block\Adminhtml\System\Config\Module\Name</frontend_model>
+                    <attribute type="module_name">PeterBrain_SalableQty</attribute>
                 </field>
-                <field id="version" translate="label" type="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="module_version" translate="label" type="note" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Module Version</label>
-                    <frontend_model>PeterBrain\SalableQty\Block\Adminhtml\System\Config\Module\Version</frontend_model>
+                    <frontend_model>PeterBrain\Core\Block\Adminhtml\System\Config\Module\Version</frontend_model>
+                    <attribute type="module_name">PeterBrain_SalableQty</attribute>
+                </field>
+                <field id="setup_version" translate="label" type="note" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Setup Version</label>
+                    <frontend_model>PeterBrain\Core\Block\Adminhtml\System\Config\Module\SetupVersion</frontend_model>
+                    <attribute type="module_name">PeterBrain_SalableQty</attribute>
                 </field>
             </group>
         </section>

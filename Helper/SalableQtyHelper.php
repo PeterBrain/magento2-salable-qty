@@ -1,20 +1,19 @@
 <?php
-
 namespace PeterBrain\SalableQty\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Store\Model\ScopeInterface;
 
-class Data extends AbstractHelper
+/**
+ * Class SalableQtyHelper
+ *
+ * @author PeterBrain <peter.loecker@live.at>
+ * @copyright Copyright (c) PeterBrain (https://peterbrain.com/)
+ * @package PeterBrain\SalableQty\Helper
+ */
+class SalableQtyHelper extends AbstractHelper
 {
     const CONFIG_MODULE_PATH = 'pb_salableqty';
-
-    public function getConfigValue($field, $storeId = null)
-    {
-        return $this->scopeConfig->getValue(
-            $field, ScopeInterface::SCOPE_STORE, $storeId
-        );
-    }
 
     /**
      * @param string $code
@@ -22,7 +21,7 @@ class Data extends AbstractHelper
      *
      * @return mixed
      */
-    public function getConfigGeneral($code = '', $storeId = null)
+    public function getConfigGeneral(string $code = '', $storeId = null)
     {
         $code = ($code !== '') ? '/' . $code : '';
 
@@ -35,7 +34,7 @@ class Data extends AbstractHelper
      *
      * @return mixed
      */
-    public function getConfigGeneralMessage($code = '', $storeId = null)
+    public function getConfigGeneralMessage(string $code = '', $storeId = null)
     {
         $code = ($code !== '') ? '/' . $code : '';
 
@@ -48,7 +47,7 @@ class Data extends AbstractHelper
      *
      * @return mixed
      */
-    public function getConfigGeneralThreshold($code = '', $storeId = null)
+    public function getConfigGeneralThreshold(string $code = '', $storeId = null)
     {
         $code = ($code !== '') ? '/' . $code : '';
 
@@ -56,11 +55,26 @@ class Data extends AbstractHelper
     }
 
     /**
+     * @param string $configPath
      * @param null $storeId
      *
-     * @return bool
+     * @return string
      */
-    public function isEnabled($storeId = null)
+    public function getConfigValue(string $configPath, $storeId = null): string
+    {
+        return $this->scopeConfig->getValue(
+            $configPath,
+            ScopeInterface::SCOPE_STORE,
+            $storeId
+        );
+    }
+
+    /**
+     * @param null $storeId
+     *
+     * @return string
+     */
+    public function isEnabled($storeId = null): string
     {
         return $this->getConfigGeneral('enable', $storeId);
     }
@@ -68,9 +82,9 @@ class Data extends AbstractHelper
     /**
      * @param null $storeId
      *
-     * @return bool
+     * @return string
      */
-    public function getDisableAddToCartButton($storeId = null)
+    public function getDisableAddToCartButton($storeId = null): string
     {
         return $this->getConfigGeneral('disable_add2cart_button', $storeId);
     }
@@ -78,9 +92,19 @@ class Data extends AbstractHelper
     /**
      * @param null $storeId
      *
-     * @return bool
+     * @return string
      */
-    public function getEnableMessage($storeId = null)
+    public function getEnableIcon($storeId = null): string
+    {
+        return $this->getConfigGeneral('enable_add2cart_icon', $storeId);
+    }
+
+    /**
+     * @param null $storeId
+     *
+     * @return string
+     */
+    public function getEnableMessage($storeId = null): string
     {
         return $this->getConfigGeneralMessage('enable_message', $storeId);
     }
@@ -90,7 +114,7 @@ class Data extends AbstractHelper
      *
      * @return string
      */
-    public function getMessageSalableQtyEq0($storeId = null)
+    public function getMessageSalableQtyEq0($storeId = null): string
     {
         return $this->getConfigGeneralMessage('message_qty_zero', $storeId);
     }
@@ -98,9 +122,9 @@ class Data extends AbstractHelper
     /**
      * @param null $storeId
      *
-     * @return bool
+     * @return string
      */
-    public function getEnableQtyThreshold($storeId = null)
+    public function getEnableQtyThreshold($storeId = null): string
     {
         return $this->getConfigGeneralThreshold('enable_qty_threshold', $storeId);
     }
@@ -110,7 +134,7 @@ class Data extends AbstractHelper
      *
      * @return string
      */
-    public function getMessageSalableQtyThreshold($storeId = null)
+    public function getMessageSalableQtyThreshold($storeId = null): string
     {
         return $this->getConfigGeneralThreshold('message_qty_threshold', $storeId);
     }
@@ -120,9 +144,8 @@ class Data extends AbstractHelper
      *
      * @return int
      */
-    public function getSalableQtyThreshold($storeId = null)
+    public function getSalableQtyThreshold($storeId = null): int
     {
         return $this->getConfigGeneralThreshold('salable_qty_threshold', $storeId);
     }
-
 }

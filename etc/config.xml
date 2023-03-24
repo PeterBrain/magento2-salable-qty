@@ -5,6 +5,7 @@
             <general>
                 <enable>0</enable>
                 <disable_add2cart_button>0</disable_add2cart_button>
+                <enable_add2cart_icon>1</enable_add2cart_icon>
                 <message>
                     <enable_message>1</enable_message>
                     <message_qty_zero>Out of stock</message_qty_zero>

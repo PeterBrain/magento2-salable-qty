@@ -1,37 +1,44 @@
 "Salable Quantity","Verkaufbare Menge"
 
-"Enable Module","Aktiviere Modul"
-"Select Yes to enable module output.","Wähle Ja, um das Modul zu aktivieren."
-"Select ""Yes"" to enable and ""No"" to disable module output.","Wähle ""Ja"", um das Modal zu aktivieren und ""Nein"", um es zu deaktivieren."
 
-"Disable Add to Cart Button",""In den Warenkorb" Button deaktivieren"
-"Select Yes to disable the ""Add to Cart"" button when the saleable quantity is 0.","Wählen Sie Ja, um den Button ""In den Warenkorb"" zu deaktivieren, wenn die verkaufbare Menge 0 beträgt."
-"Select ""Yes"" to disable and ""No"" to leave ""Add to Cart"" button at default.","Wählen Sie ""Ja"", um den Button ""In den Warenkorb"" zu deaktivieren, und ""Nein"", um den Button ""In den Warenkorb"" in der Standardeinstellung zu belassen."
+"Enable Module","Aktiviere Modul", module, PeterBrain_SalableQty
+"Select Yes to enable module output.","Wähle Ja, um das Modul zu aktivieren.", module, PeterBrain_SalableQty
+"Select ""Yes"" to enable and ""No"" to disable module output.","Wähle ""Ja"", um das Modal zu aktivieren und ""Nein"", um es zu deaktivieren.", module, PeterBrain_SalableQty
 
-"Frontend Message","Frontend-Nachricht"
-"Configuration for the output of messages on the frontend. Note: The configuration of the threshold message is located in the threshold group below.","Konfiguration für die Ausgabe von Meldungen auf dem Frontend. Hinweis: Die Konfiguration der Schwellenwertmeldung befindet sich in der Gruppe Schwellenwert weiter unten."
+"Disable Add to Cart Button",""In den Warenkorb" Button deaktivieren", module, PeterBrain_SalableQty
+"Select Yes to disable the ""Add to Cart"" button when the saleable quantity is 0.","Wählen Sie Ja, um den Button ""In den Warenkorb"" zu deaktivieren, wenn die verkaufbare Menge 0 beträgt.", module, PeterBrain_SalableQty
+"Select ""Yes"" to disable and ""No"" to leave ""Add to Cart"" button at default.","Wählen Sie ""Ja"", um den Button ""In den Warenkorb"" zu deaktivieren, und ""Nein"", um den Button ""In den Warenkorb"" in der Standardeinstellung zu belassen.", module, PeterBrain_SalableQty
 
-"Enable Message","Nachricht aktivieren"
-"Select Yes to enable message output.","Wählen Sie Ja, um die Nachrichtenausgabe zu aktivieren."
-"Select ""Yes"" to enable and ""No"" to disable message output.","Wählen Sie ""Ja"" zum Aktivieren und ""Nein"" zum Deaktivieren der Nachrichtenausgabe."
+"Enable Add to Cart Button Icon","In den Warenkorb Symbol aktivieren", module, PeterBrain_SalableQty
+"Select Yes to enable the ""Add to Cart"" button icon when the saleable quantity is 0.","Wähle Ja, um das Symbol des ""In den Warenkorb"" Buttons zu aktivieren, wenn die verkaufbare Menge 0 beträgt.", module, PeterBrain_SalableQty
+"Select ""Yes"" to enable and ""No"" to disable ""Add to Cart"" button icon.","Wähle ""Ja"" zum Aktivieren und ""Nein"" zum Deaktivieren des ""In den Warenkorb"" Button Symbols.", module, PeterBrain_SalableQty
 
-"Message for Saleable Quantity = 0","Nachricht für verkaufbare Menge = 0"
-"This message is displayed when the product has already been ordered but not yet shipped and the quantity is 1 (saleable quantity = 0). The default behavior of Magento is to display an error message that the requested quantity is no longer available. This can cause confusion as the product will continue to be displayed as ""in stock"" until it is shipped.","Diese Meldung wird angezeigt, wenn das Produkt bereits bestellt, aber noch nicht versandt wurde und die Menge 1 beträgt (verkaufbare Menge = 0). Das Standardverhalten von Magento ist die Anzeige einer Fehlermeldung, dass die angeforderte Menge nicht mehr verfügbar ist. Dies kann zu Verwirrung führen, da das Produkt weiterhin als ""auf Lager"" angezeigt wird, bis es versandt wird."
-"Default message: Out of stock. Suggestion: This product has been sold recently and is no longer available.","Standardmeldung: Nicht auf Lager. Vorschlag: Dieses Produkt wurde kürzlich verkauft und ist nicht mehr verfügbar."
-"Out of stock","Nicht auf Lager"
 
-"Threshold","Schwellenwert"
-"Minimum quantity threshold configuration. Display a message on the frontend when the saleable quantity matches or drops below a certain threshold.","Konfiguration der Mindestmengen-Schwelle. Zeigt eine Meldung auf dem Frontend an, wenn die verkaufbare Menge einem bestimmten Schwellenwert entspricht oder darunter liegt."
+"Frontend Message","Frontend-Nachricht", module, PeterBrain_SalableQty
+"Configuration for the output of messages on the frontend. Note: The configuration of the threshold message is located in the threshold group below.","Konfiguration für die Ausgabe von Meldungen auf dem Frontend. Hinweis: Die Konfiguration der Schwellenwertmeldung befindet sich in der Gruppe Schwellenwert weiter unten.", module, PeterBrain_SalableQty
 
-"Enable Quantity Threshold","Schwellenwert für Mindestmenge aktivieren"
-"Select Yes to enable quantity threshold.","Wählen Sie Ja, um den Mengenschwellenwert zu aktivieren."
-"Select ""Yes"" to enable and ""No"" to disable quantity threshold.","Wählen Sie ""Ja"", um den Mengenschwellenwert zu aktivieren und ""Nein"", um ihn zu deaktivieren."
+"Enable Message","Nachricht aktivieren", module, PeterBrain_SalableQty
+"Select Yes to enable message output.","Wählen Sie Ja, um die Nachrichtenausgabe zu aktivieren.", module, PeterBrain_SalableQty
+"Select ""Yes"" to enable and ""No"" to disable message output.","Wählen Sie ""Ja"" zum Aktivieren und ""Nein"" zum Deaktivieren der Nachrichtenausgabe.", module, PeterBrain_SalableQty
 
-"Quantity Threshold","Mindestmengenschwellenwert"
-"Must be a whole number above 1. Default value: 5","Muss eine ganze Zahl über 1 sein. Standardwert: 5"
-"Minimum threshold at which the message about the remaining quantity is to be displayed.","Mindestschwellenwert, bei dem die Meldung über die Restmenge angezeigt werden soll."
+"Message for Saleable Quantity = 0","Nachricht für verkaufbare Menge = 0", module, PeterBrain_SalableQty
+"This message is displayed when the product has already been ordered but not yet shipped and the quantity is 1 (saleable quantity = 0). The default behavior of Magento is to display an error message that the requested quantity is no longer available. This can cause confusion as the product will continue to be displayed as ""in stock"" until it is shipped.","Diese Meldung wird angezeigt, wenn das Produkt bereits bestellt, aber noch nicht versandt wurde und die Menge 1 beträgt (verkaufbare Menge = 0). Das Standardverhalten von Magento ist die Anzeige einer Fehlermeldung, dass die angeforderte Menge nicht mehr verfügbar ist. Dies kann zu Verwirrung führen, da das Produkt weiterhin als ""auf Lager"" angezeigt wird, bis es versandt wird.", module, PeterBrain_SalableQty
+"Default message: Out of stock. Suggestion: This product has been sold recently and is no longer available.","Standardmeldung: Nicht auf Lager. Vorschlag: Dieses Produkt wurde kürzlich verkauft und ist nicht mehr verfügbar.", module, PeterBrain_SalableQty
+"Out of stock","Nicht auf Lager", module, PeterBrain_SalableQty
 
-"Message for Salable Quantity at or below Threshold Value","Nachricht für verkaufbare Menge am oder unter dem Schwellenwert"
-"Default message: Only %1 item(s) left!","Standardmeldung: Nur noch %1 Artikel übrig!"
-"This message is displayed when the saleable quantity is at or below the threshold. Use %1 to display the remaining quantity (required).","Diese Meldung wird angezeigt, wenn die verkaufbare Menge an oder unter dem Schwellenwert liegt. Verwenden Sie %1 als Platzhalter für die Restmenge (erforderlich)."
-"Only %1 item(s) left!","Nur noch %1 Artikel übrig!"
+
+"Threshold","Schwellenwert", module, PeterBrain_SalableQty
+"Minimum quantity threshold configuration. Display a message on the frontend when the saleable quantity matches or drops below a certain threshold.","Konfiguration der Mindestmengen-Schwelle. Zeigt eine Meldung auf dem Frontend an, wenn die verkaufbare Menge einem bestimmten Schwellenwert entspricht oder darunter liegt.", module, PeterBrain_SalableQty
+
+"Enable Quantity Threshold","Schwellenwert für Mindestmenge aktivieren", module, PeterBrain_SalableQty
+"Select Yes to enable quantity threshold.","Wählen Sie Ja, um den Mengenschwellenwert zu aktivieren.", module, PeterBrain_SalableQty
+"Select ""Yes"" to enable and ""No"" to disable quantity threshold.","Wählen Sie ""Ja"", um den Mengenschwellenwert zu aktivieren und ""Nein"", um ihn zu deaktivieren.", module, PeterBrain_SalableQty
+
+"Quantity Threshold","Mindestmengenschwellenwert", module, PeterBrain_SalableQty
+"Must be a whole number above 1. Default value: 5","Muss eine ganze Zahl über 1 sein. Standardwert: 5", module, PeterBrain_SalableQty
+"Minimum threshold at which the message about the remaining quantity is to be displayed.","Mindestschwellenwert, bei dem die Meldung über die Restmenge angezeigt werden soll.", module, PeterBrain_SalableQty
+
+"Message for Salable Quantity at or below Threshold Value","Nachricht für verkaufbare Menge am oder unter dem Schwellenwert", module, PeterBrain_SalableQty
+"Default message: Only %1 item(s) left!","Standardmeldung: Nur noch %1 Artikel übrig!", module, PeterBrain_SalableQty
+"This message is displayed when the saleable quantity is at or below the threshold. Use %1 to display the remaining quantity (required).","Diese Meldung wird angezeigt, wenn die verkaufbare Menge an oder unter dem Schwellenwert liegt. Verwenden Sie %1 als Platzhalter für die Restmenge (erforderlich).", module, PeterBrain_SalableQty
+"Only %1 item(s) left!","Nur noch %1 Artikel übrig!", module, PeterBrain_SalableQty

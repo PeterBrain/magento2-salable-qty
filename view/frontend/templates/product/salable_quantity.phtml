@@ -1,8 +1,9 @@
 <?php
-
-/* @var $block \PeterBrain\SalableQty\Block\SalableQuantityBlock */
+/**
+ * @var $block \PeterBrain\SalableQty\Block\SalableQuantityBlock
+ */
 ?>
-<?php $helper = $this->helper('PeterBrain\SalableQty\Helper\Data'); ?>
+<?php $helper = $this->helper('PeterBrain\SalableQty\Helper\SalableQtyHelper'); ?>
 
 <?php if ($helper->isEnabled()): ?>
 
@@ -19,10 +20,13 @@
         <script>
             var cartButton = document.getElementById('product-addtocart-button');
 
-            window.addEventListener('load', (event) => {
-                cartButton.disabled = true;
-                cartButton.classList.add("disabled", "addToCartButtonDisabledClass");
-            });
+            if (cartButton != null) {
+                window.addEventListener('load', (event) => {
+                    cartButton.disabled = true;
+                    cartButton.classList.add("disabled", "addToCartButtonDisabledClass");
+                    <?php echo !$helper->getEnableIcon() ?: 'cartButton.classList.add("lock-icon");'; ?>
+                });
+            }
         </script>
     <?php endif; ?>
 

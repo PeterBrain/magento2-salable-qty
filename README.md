@@ -17,6 +17,7 @@ Package name: `peterbrain/magento2-salable-qty`
   - Customizable threshold
 - Display custom message for products without salable quantity. This is the case if a product quantity equals 1 and is ordered, but is not yet shipped. The default behavior of Magento is to display an error message that the requested quantity is no longer available after a click on the Add to cart button. Not ideal, because this can cause confusion as the product will continue to be displayed as "in stock" until it is shipped.
   - Option to disable the Add to cart button
+  - Option to show a lock symbol on the Add to Cart button
   - Custmizable message: This product has been sold recently and is no longer available.
 
 Display custom message for products with salable quantity at or below threshold:

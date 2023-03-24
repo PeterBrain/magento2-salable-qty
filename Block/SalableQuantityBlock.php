@@ -1,85 +1,84 @@
 <?php
-
 namespace PeterBrain\SalableQty\Block;
 
-use PeterBrain\SalableQty\Helper\Data as Helper;
-use Magento\Catalog\Api\Data\ProductInterface;
-use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magento\Framework\App\Request\Http;
 use Magento\Framework\View\Element\Template;
 use Magento\Backend\Block\Template\Context;
+use Magento\Store\Model\StoreManagerInterface;
+use Magento\Catalog\Api\Data\ProductInterface;
+use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magento\InventorySalesApi\Api\GetProductSalableQtyInterface;
 use Magento\InventorySalesApi\Api\StockResolverInterface;
-use Magento\Store\Model\StoreManagerInterface;
 use Magento\InventorySalesApi\Api\Data\SalesChannelInterface;
+use PeterBrain\SalableQty\Helper\SalableQtyHelper as SalableQtyHelper;
 
 /**
  * Class SalableQuantityBlock
+ *
+ * @author PeterBrain <peter.loecker@live.at>
+ * @copyright Copyright (c) PeterBrain (https://peterbrain.com/)
  * @package PeterBrain\SalableQty\Block
  */
 class SalableQuantityBlock extends Template
 {
     /**
-     * @var ProductRepositoryInterface
+     * @var Http
      */
-    protected $productRepository;
-
-    /**
-     * @var GetProductSalableQtyInterface
-     */
-    protected $saleableQty;
-
-    /**
-     * @var StockResolverInterface
-     */
-    protected $stockResolver;
+    protected $_request;
 
     /**
      * @var StoreManagerInterface
      */
-    protected $storeManager;
+    protected $_storeManager;
 
     /**
-     * @var Http
+     * @var ProductRepositoryInterface
      */
-    protected $request;
+    protected $_productRepository;
 
     /**
-     * @var ScopeConfigInterface
+     * @var StockResolverInterface
      */
-    //protected $scopeConfig;
+    protected $_stockResolver;
 
     /**
-     * @var Helper
+     * @var GetProductSalableQtyInterface
      */
-    protected $helper;
+    protected $_saleableQty;
 
     /**
-     * @param ProductRepositoryInterface $productRepository
-     * @param StoreManagerInterface $storeManager
-     * @param GetProductSalableQtyInterface $saleableQty
-     * @param Http $request
-     * @param StockResolverInterface $stockResolver
+     * @var SalableQtyHelper
+     */
+    protected $_salableQtyHelper;
+
+    /**
+     * Constructor
+     *
      * @param Context $context
-     * @param Helper $helper
+     * @param Http $request
+     * @param StoreManagerInterface $storeManager
+     * @param ProductRepositoryInterface $productRepository
+     * @param StockResolverInterface $stockResolver
+     * @param GetProductSalableQtyInterface $saleableQty
+     * @param SalableQtyHelper $salableQtyHelper
      * @param array $data
      */
     public function __construct(
-        ProductRepositoryInterface $productRepository,
-        StoreManagerInterface $storeManager,
-        GetProductSalableQtyInterface $saleableQty,
-        Http $request,
-        StockResolverInterface $stockResolver,
         Context $context,
-        Helper $helper,
+        Http $request,
+        StoreManagerInterface $storeManager,
+        ProductRepositoryInterface $productRepository,
+        StockResolverInterface $stockResolver,
+        GetProductSalableQtyInterface $saleableQty,
+        SalableQtyHelper $salableQtyHelper,
         array $data = []
     ) {
-        $this->productRepository = $productRepository;
-        $this->request = $request;
-        $this->storeManager = $storeManager;
-        $this->saleableQty = $saleableQty;
-        $this->stockResolver = $stockResolver;
-        $this->helper = $helper;
+        $this->_request = $request;
+        $this->_storeManager = $storeManager;
+        $this->_productRepository = $productRepository;
+        $this->_stockResolver = $stockResolver;
+        $this->_saleableQty = $saleableQty;
+        $this->_salableQtyHelper = $salableQtyHelper;
         parent::__construct($context, $data);
     }
 
@@ -87,21 +86,22 @@ class SalableQuantityBlock extends Template
      * Return the actual salable quantity
      *
      * @return int|string
+     *
      * @throws \Magento\Framework\Exception\LocalizedException
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function getSalableQuantity()
     {
-        $websiteCode = $this->storeManager->getWebsite()->getCode();
-        $stock = $this->stockResolver->execute(SalesChannelInterface::TYPE_WEBSITE, $websiteCode);
+        $websiteCode = $this->_storeManager->getWebsite()->getCode();
+        $stock = $this->_stockResolver->execute(SalesChannelInterface::TYPE_WEBSITE, $websiteCode);
         $stockId = $stock->getStockId();
-        $productId = $this->request->getParam('id');
-        $product = $this->productRepository->getById($productId);
+        $productId = $this->_request->getParam('id');
+        $product = $this->_productRepository->getById($productId);
         $type = $product->getTypeId();
 
         if ($type != 'configurable' && $type != 'bundle' && $type != 'grouped') {
             $sku = $product->getSku();
-            $salableQty = $this->saleableQty->execute($sku, $stockId);
+            $salableQty = $this->_saleableQty->execute($sku, $stockId);
             return $salableQty;
         } else {
             return '';
@@ -112,18 +112,19 @@ class SalableQuantityBlock extends Template
      * Return message depending on salable quantity
      *
      * @return string
+     *
      * @throws \Magento\Framework\Exception\LocalizedException
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getSalableQuantityMessage()
+    public function getSalableQuantityMessage(): string
     {
         $salable_qty = $this->getSalableQuantity();
 
-        $message_enabled = $this->helper->getEnableMessage();
-        $message_zero = $this->helper->getMessageSalableQtyEq0();
-        $threshold_enabled = $this->helper->getEnableQtyThreshold();
-        $message_threshold = $this->helper->getMessageSalableQtyThreshold();
-        $threshold = $this->helper->getSalableQtyThreshold();
+        $message_enabled = $this->_salableQtyHelper->getEnableMessage();
+        $message_zero = $this->_salableQtyHelper->getMessageSalableQtyEq0();
+        $threshold_enabled = $this->_salableQtyHelper->getEnableQtyThreshold();
+        $message_threshold = $this->_salableQtyHelper->getMessageSalableQtyThreshold();
+        $threshold = $this->_salableQtyHelper->getSalableQtyThreshold();
 
         if ($message_enabled) {
             if ($salable_qty < 1) {

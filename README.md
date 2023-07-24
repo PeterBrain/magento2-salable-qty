@@ -39,7 +39,7 @@ composer require peterbrain/magento2-salable-qty
 
 - Unzip the zip file in `app/code/PeterBrain`
 
-This extension is depend on [PeterBrain Core](https://github.com/PeterBrain/magento2-peterbrain-core). Make sure that you have installed it first. Use composer to install it automatically with this module.
+This extension is dependent on [PeterBrain Core](https://github.com/PeterBrain/magento2-peterbrain-core). Make sure that you have installed it first. Use Composer to install it automatically with this module.
 
 ### Enable & deploy
 

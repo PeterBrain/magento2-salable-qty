@@ -120,17 +120,19 @@ class SalableQuantityBlock extends Template
     {
         $salable_qty = $this->getSalableQuantity();
 
-        $message_enabled = $this->_salableQtyHelper->getEnableMessage();
-        $message_zero = $this->_salableQtyHelper->getMessageSalableQtyEq0();
-        $threshold_enabled = $this->_salableQtyHelper->getEnableQtyThreshold();
-        $message_threshold = $this->_salableQtyHelper->getMessageSalableQtyThreshold();
-        $threshold = $this->_salableQtyHelper->getSalableQtyThreshold();
+        if ($salable_qty != '') {
+            $message_enabled = $this->_salableQtyHelper->getEnableMessage();
+            $message_zero = $this->_salableQtyHelper->getMessageSalableQtyEq0();
+            $threshold_enabled = $this->_salableQtyHelper->getEnableQtyThreshold();
+            $message_threshold = $this->_salableQtyHelper->getMessageSalableQtyThreshold();
+            $threshold = $this->_salableQtyHelper->getSalableQtyThreshold();
 
-        if ($message_enabled) {
-            if ($salable_qty < 1) {
-                return __($message_zero);
-            } else if ($threshold_enabled && ($salable_qty <= $threshold)) {
-                return __($message_threshold, $salable_qty);
+            if ($message_enabled) {
+                if ($salable_qty < 1) {
+                    return __($message_zero);
+                } else if ($threshold_enabled && ($salable_qty <= $threshold)) {
+                    return __($message_threshold, $salable_qty);
+                }
             }
         }
 

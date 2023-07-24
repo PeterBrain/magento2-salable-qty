@@ -2,7 +2,7 @@
     "name": "peterbrain/magento2-salable-qty",
     "description": "Display a custom message about the salable quantity on the product detail page. E.g. Only x items left! Disable the Add to cart button for products without salable quantity.",
     "type": "magento2-module",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "license": [
         "OSL-3.0"
     ],

@@ -16,7 +16,7 @@
         </div>
     <?php endif; ?>
 
-    <?php if ($helper->getDisableAddToCartButton() && $salable_qty < 1 && $salable_qty != ''): ?>
+    <?php if ($helper->getDisableAddToCartButton() && $salable_qty < 1 && is_numeric($salable_qty)): ?>
         <script>
             var cartButton = document.getElementById('product-addtocart-button');
 

@@ -104,7 +104,7 @@ class SalableQuantityBlock extends Template
             $salableQty = $this->_saleableQty->execute($sku, $stockId);
             return $salableQty;
         } else {
-            return '';
+            return $type;
         }
     }
 
@@ -120,7 +120,7 @@ class SalableQuantityBlock extends Template
     {
         $salable_qty = $this->getSalableQuantity();
 
-        if ($salable_qty != '') {
+        if (is_numeric($salable_qty)) {
             $message_enabled = $this->_salableQtyHelper->getEnableMessage();
             $message_zero = $this->_salableQtyHelper->getMessageSalableQtyEq0();
             $threshold_enabled = $this->_salableQtyHelper->getEnableQtyThreshold();

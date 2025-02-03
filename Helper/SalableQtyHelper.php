@@ -6,10 +6,10 @@ use Magento\Store\Model\ScopeInterface;
 
 /**
  * Class SalableQtyHelper
+ * salable quantity helper
  *
  * @author PeterBrain <peter.loecker@live.at>
  * @copyright Copyright (c) PeterBrain (https://peterbrain.com/)
- * @package PeterBrain\SalableQty\Helper
  */
 class SalableQtyHelper extends AbstractHelper
 {
@@ -72,41 +72,41 @@ class SalableQtyHelper extends AbstractHelper
     /**
      * @param null $storeId
      *
-     * @return string
+     * @return boolean
      */
-    public function isEnabled($storeId = null): string
+    public function isEnabled($storeId = null): bool
     {
-        return $this->getConfigGeneral('enable', $storeId);
+        return $this->getConfigGeneral('enable', $storeId) ?: false;
     }
 
     /**
      * @param null $storeId
      *
-     * @return string
+     * @return boolean
      */
-    public function getDisableAddToCartButton($storeId = null): string
+    public function getDisableAddToCartButton($storeId = null): bool
     {
-        return $this->getConfigGeneral('disable_add2cart_button', $storeId);
+        return $this->getConfigGeneral('disable_add2cart_button', $storeId) ?: false;
     }
 
     /**
      * @param null $storeId
      *
-     * @return string
+     * @return boolean
      */
-    public function getEnableIcon($storeId = null): string
+    public function getEnableIcon($storeId = null): bool
     {
-        return $this->getConfigGeneral('enable_add2cart_icon', $storeId);
+        return $this->getConfigGeneral('enable_add2cart_icon', $storeId) ?: false;
     }
 
     /**
      * @param null $storeId
      *
-     * @return string
+     * @return boolean
      */
-    public function getEnableMessage($storeId = null): string
+    public function getEnableMessage($storeId = null): bool
     {
-        return $this->getConfigGeneralMessage('enable_message', $storeId);
+        return $this->getConfigGeneralMessage('enable_message', $storeId) ?: false;
     }
 
     /**
@@ -122,11 +122,11 @@ class SalableQtyHelper extends AbstractHelper
     /**
      * @param null $storeId
      *
-     * @return string
+     * @return boolean
      */
-    public function getEnableQtyThreshold($storeId = null): string
+    public function getEnableQtyThreshold($storeId = null): bool
     {
-        return $this->getConfigGeneralThreshold('enable_qty_threshold', $storeId);
+        return $this->getConfigGeneralThreshold('enable_qty_threshold', $storeId) ?: false;
     }
 
     /**

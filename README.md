@@ -15,10 +15,10 @@ Package name: `peterbrain/magento2-salable-qty`
 - Display a custom message about the salable quantity on the product detail page.
   - Customizable message: Only x item(s) left!
   - Customizable threshold
-- Display custom message for products without salable quantity. This is the case if a product quantity equals 1 and is ordered, but is not yet shipped. The default behavior of Magento is to display an error message that the requested quantity is no longer available after a click on the Add to cart button. Not ideal, because this can cause confusion as the product will continue to be displayed as "in stock" until it is shipped.
+- Display custom message for products without salable quantity. This is the case if a product quantity equals 1 and is ordered, but is not yet shipped. The default behavior of Magento 2 is to display an error message that the requested quantity is no longer available after a click on the Add to cart button. Not ideal, because this can cause confusion as the product will continue to be displayed as "in stock" until it is shipped.
   - Option to disable the Add to cart button
   - Option to show a lock symbol on the Add to Cart button
-  - Custmizable message: This product has been sold recently and is no longer available.
+  - Customizable message: This product has been sold recently and is no longer available.
 
 Display custom message for products with salable quantity at or below threshold:
 ![Display custom message for products with salable quantity at or below threshold.](https://github.com/peterbrain/magento2-salable-qty/blob/media/salable-qty_frontend-threshold.jpg?raw=true)
@@ -39,19 +39,20 @@ composer require peterbrain/magento2-salable-qty
 
 - Unzip the zip file in `app/code/PeterBrain`
 
-This extension is dependent on [PeterBrain Core](https://github.com/PeterBrain/magento2-peterbrain-core). Make sure that you have installed it first. Use Composer to install it automatically with this module.
+This extension requires [PeterBrain Core](https://github.com/PeterBrain/magento2-peterbrain-core). Ensure that you have it installed prior to installing this module. Use Composer to install it automatically with this module.
 
 ### Enable & deploy
 
 ```bash
-php bin/magento module:enable PeterBrain_SalableQty
-php bin/magento setup:upgrade
-php bin/magento cache:flush
+bin/magento module:enable PeterBrain_SalableQty
+bin/magento setup:upgrade
+bin/magento setup:static-content:deploy
+bin/magento cache:flush
 ```
 
 ## Usage
 
-- Enable module ouptut in `Stores > Configuration > PeterBrain Extensions > Salable Quantity > General Configuration`
+- Enable module output in `Stores > Configuration > PeterBrain Extensions > Salable Quantity > General Configuration`
 - Set a custom message for products with salable quantity is zero
 - Disable the add to cart button if salable quantity is zero
 - Set a custom minimum  salable quantity threshold

@@ -14,10 +14,10 @@ use PeterBrain\SalableQty\Helper\SalableQtyHelper as SalableQtyHelper;
 
 /**
  * Class SalableQuantityBlock
+ * salable quantity processing block
  *
  * @author PeterBrain <peter.loecker@live.at>
  * @copyright Copyright (c) PeterBrain (https://peterbrain.com/)
- * @package PeterBrain\SalableQty\Block
  */
 class SalableQuantityBlock extends Template
 {
@@ -73,13 +73,37 @@ class SalableQuantityBlock extends Template
         SalableQtyHelper $salableQtyHelper,
         array $data = []
     ) {
+        parent::__construct($context, $data);
         $this->_request = $request;
         $this->_storeManager = $storeManager;
         $this->_productRepository = $productRepository;
         $this->_stockResolver = $stockResolver;
         $this->_saleableQty = $saleableQty;
         $this->_salableQtyHelper = $salableQtyHelper;
-        parent::__construct($context, $data);
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isEnabled(): bool
+    {
+        return $this->_salableQtyHelper->isEnabled();
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getDisableAddToCartButton(): bool
+    {
+        return $this->_salableQtyHelper->getDisableAddToCartButton();
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getEnableIcon(): bool
+    {
+        return $this->_salableQtyHelper->getEnableIcon();
     }
 
     /**
@@ -130,7 +154,7 @@ class SalableQuantityBlock extends Template
             if ($message_enabled) {
                 if ($salable_qty < 1) {
                     return __($message_zero);
-                } else if ($threshold_enabled && ($salable_qty <= $threshold)) {
+                } elseif ($threshold_enabled && ($salable_qty <= $threshold)) {
                     return __($message_threshold, $salable_qty);
                 }
             }
